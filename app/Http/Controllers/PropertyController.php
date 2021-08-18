@@ -37,7 +37,7 @@ class PropertyController extends Controller
     public function store(PropertyRequest $request)
     {
 
-        Property::create(PropertyRequest::class);
+        Property::create($request->all());
     }
 
     /**
@@ -69,10 +69,9 @@ class PropertyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PropertyRequest $property)
+    public function update(PropertyRequest $request,Property $property)
     {
-        $data= $property->all();
-        $property->update(PropertyRequest::class);
+        $property->update($request->all());
     }
 
     /**
