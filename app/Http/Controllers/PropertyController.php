@@ -37,7 +37,10 @@ class PropertyController extends Controller
     public function store(PropertyRequest $request)
     {
 
-        Property::create($request->all());
+        $property = Property::create($request->all());
+
+        return redirect('/property/'.$property->id);
+
     }
 
     /**
@@ -72,6 +75,8 @@ class PropertyController extends Controller
     public function update(PropertyRequest $request,Property $property)
     {
         $property->update($request->all());
+
+        return  redirect('/property/'.$property->id);
     }
 
     /**
@@ -80,8 +85,10 @@ class PropertyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Property $property)
     {
-        //
+        $property->delete();
+
+        return redirect('/properties');
     }
 }
