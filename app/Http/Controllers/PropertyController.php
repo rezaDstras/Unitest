@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PropertyRequest;
 use App\Models\Property;
 use Illuminate\Http\Request;
 
@@ -33,12 +34,10 @@ class PropertyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PropertyRequest $request)
     {
-        Property::create([
-           'title'=>$request['title'],
-           'price'=>$request['price'],
-        ]);
+
+        Property::create(PropertyRequest::class);
     }
 
     /**
@@ -70,9 +69,10 @@ class PropertyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PropertyRequest $property)
     {
-        //
+        $data= $property->all();
+        $property->update(PropertyRequest::class);
     }
 
     /**

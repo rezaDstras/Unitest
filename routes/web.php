@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-//Route::resource('property',\App\Http\Controllers\PropertyController::class);
-Route::post('/property',[\App\Http\Controllers\PropertyController::class,'store']);
+Route::resource('property',\App\Http\Controllers\PropertyController::class);
+//Route::post('/property',[\App\Http\Controllers\PropertyController::class,'store']);
