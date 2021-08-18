@@ -17,4 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('property',\App\Http\Controllers\PropertyController::class);
+Route::resource('author',\App\Http\Controllers\AuthorController::class);
 //Route::post('/property',[\App\Http\Controllers\PropertyController::class,'store']);
